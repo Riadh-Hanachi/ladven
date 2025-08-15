@@ -25,6 +25,10 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
   <!-- TON nouveau thème premium -->
@@ -138,6 +142,17 @@
         to address global challenges in water accessibility and quality.
       </p>
     </div>
+
+    <!-- Item: Sondage Eau Potable -->
+<div class="animated-item" onclick="window.location.href='sondage-eau.html'" style="cursor:pointer;">
+  <i class="bi bi-droplet-half"></i>
+  <h4>Sondage sur l'Eau Potable</h4>
+  <p>
+    Participez à notre enquête nationale sur la qualité et l'accès à l'eau potable 
+    en partageant vos expériences et avis.
+  </p>
+</div>
+
 
     <!-- Item 2 -->
     <div class="animated-item">
@@ -287,82 +302,168 @@
 <div class="container">
   <div class="row gy-4">
 
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-      <div class="service-item position-relative">
-        <div class="icon">
-          <i class="fa-solid fa-water"></i>
+    
+     <!-- Item 1 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item position-relative">
+          <div class="icon"><i class="fa-solid fa-water"></i></div>
+          <a href="#" class="stretched-link" data-bs-toggle="modal" data-bs-target="#modalDesalination">
+            <h3>Desalination Technologies</h3>
+          </a>
+          <p>Exploring and optimizing membrane-based and solar desalination systems for sustainable freshwater production.</p>
         </div>
-        <a href="#" class="stretched-link">
-          <h3>Desalination Technologies</h3>
-        </a>
-        <p>Exploring and optimizing membrane-based and solar desalination systems for sustainable freshwater production.</p>
       </div>
-    </div>
 
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-      <div class="service-item position-relative">
-        <div class="icon">
-          <i class="fa-solid fa-microscope"></i>
+      <!-- Item 2 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-item position-relative">
+          <div class="icon"><i class="fa-solid fa-microscope"></i></div>
+          <a href="#" class="stretched-link" data-bs-toggle="modal" data-bs-target="#modalMicroplastics">
+            <h3>Microplastics Monitoring</h3>
+          </a>
+          <p>Detection and analysis of microplastics in drinking water sources and their impacts on health and ecosystems.</p>
         </div>
-        <a href="#" class="stretched-link">
-          <h3>Microplastics Monitoring</h3>
-        </a>
-        <p>Detection and analysis of microplastics in drinking water sources and their impacts on health and ecosystems.</p>
       </div>
-    </div>
 
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-      <div class="service-item position-relative">
-        <div class="icon">
-          <i class="fa-solid fa-vial"></i>
+      <!-- Item 3 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-item position-relative">
+          <div class="icon"><i class="fa-solid fa-vial"></i></div>
+          <a href="#" class="stretched-link" data-bs-toggle="modal" data-bs-target="#modalWaterQuality">
+            <h3>Water Quality Assessment</h3>
+          </a>
+          <p>Application of advanced analytical methods to monitor physical, chemical, and biological indicators of water quality.</p>
         </div>
-        <a href="#" class="stretched-link">
-          <h3>Water Quality Assessment</h3>
-        </a>
-        <p>Application of advanced analytical methods to monitor physical, chemical, and biological indicators of water quality.</p>
       </div>
-    </div>
 
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-      <div class="service-item position-relative">
-        <div class="icon">
-          <i class="fa-solid fa-atom"></i>
+      <!-- Item 4 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-item position-relative">
+          <div class="icon"><i class="fa-solid fa-atom"></i></div>
+          <a href="#" class="stretched-link" data-bs-toggle="modal" data-bs-target="#modalComputationalChemistry">
+            <h3>Computational Chemistry</h3>
+          </a>
+          <p>Modeling molecular interactions in aqueous systems to support material design for water purification technologies.</p>
         </div>
-        <a href="#" class="stretched-link">
-          <h3>Computational Chemistry</h3>
-        </a>
-        <p>Modeling molecular interactions in aqueous systems to support material design for water purification technologies.</p>
       </div>
-    </div>
 
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-      <div class="service-item position-relative">
-        <div class="icon">
-          <i class="fa-solid fa-brain"></i>
+      <!-- Item 5 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-item position-relative">
+          <div class="icon"><i class="fa-solid fa-brain"></i></div>
+          <a href="#" class="stretched-link" data-bs-toggle="modal" data-bs-target="#modalAI">
+            <h3>AI & Data Science for Water</h3>
+          </a>
+          <p>Use of machine learning and big data analytics to predict contamination patterns and optimize resource management.</p>
         </div>
-        <a href="#" class="stretched-link">
-          <h3>AI & Data Science for Water</h3>
-        </a>
-        <p>Use of machine learning and big data analytics to predict contamination patterns and optimize resource management.</p>
       </div>
-    </div>
 
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-      <div class="service-item position-relative">
-        <div class="icon">
-          <i class="fa-solid fa-database"></i>
+      <!-- Item 6 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-item position-relative">
+          <div class="icon"><i class="fa-solid fa-database"></i></div>
+          <a href="#" class="stretched-link" data-bs-toggle="modal" data-bs-target="#modalDataPlatforms">
+            <h3>Environmental Data Platforms</h3>
+          </a>
+          <p>Development of open-access platforms to share environmental datasets and support collaborative research.</p>
         </div>
-        <a href="#" class="stretched-link">
-          <h3>Environmental Data Platforms</h3>
-        </a>
-        <p>Development of open-access platforms to share environmental datasets and support collaborative research.</p>
       </div>
-    </div>
-
   </div>
 </div>
 
+</section>
 
+<!-- ===== Modals Section ===== -->
+
+<!-- Modal 1 -->
+<div class="modal fade" id="modalDesalination" tabindex="-1" aria-labelledby="modalDesalinationLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalDesalinationLabel">Desalination Technologies</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Detailed explanation of membrane-based and solar desalination, including innovations and applications.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2 -->
+<div class="modal fade" id="modalMicroplastics" tabindex="-1" aria-labelledby="modalMicroplasticsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalMicroplasticsLabel">Microplastics Monitoring</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Methods and tools for detecting microplastics in water sources, health impacts, and mitigation strategies.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 3 -->
+<div class="modal fade" id="modalWaterQuality" tabindex="-1" aria-labelledby="modalWaterQualityLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalWaterQualityLabel">Water Quality Assessment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Overview of chemical, physical, and biological testing methods to ensure safe drinking water.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 4 -->
+<div class="modal fade" id="modalComputationalChemistry" tabindex="-1" aria-labelledby="modalComputationalChemistryLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalComputationalChemistryLabel">Computational Chemistry</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Simulations of molecular interactions to improve materials for water treatment.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 5 -->
+<div class="modal fade" id="modalAI" tabindex="-1" aria-labelledby="modalAILabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAILabel">AI & Data Science for Water</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        How artificial intelligence and big data can optimize water resource management and contamination prediction.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 6 -->
+<div class="modal fade" id="modalDataPlatforms" tabindex="-1" aria-labelledby="modalDataPlatformsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalDataPlatformsLabel">Environmental Data Platforms</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Description of open-access environmental data sharing platforms and collaborative tools.
+      </div>
+    </div>
+  </div>
+</div>
   
 
    <!-- Partners Section -->
@@ -469,6 +570,7 @@
   </div>
 
 </section><!-- /Partners Section -->
+
 
 
   <!-- TEAM -->
@@ -868,7 +970,7 @@
       <div class="row g-4">
         <div class="col-lg-4">
           <h5 class="text-white">LaDVEN</h5>
-          <p class="text-secondary">Laboratoire de développement des nanotechnologies pour l'eau et l'environnement.</p>
+          <p class="text-white">Laboratoire de développement des nanotechnologies pour l'eau et l'environnement.</p>
           <div class="d-flex gap-3 mt-3">
             <a class="footer-link" href="#"><i class="bi bi-twitter-x"></i></a>
             <a class="footer-link" href="#"><i class="bi bi-facebook"></i></a>

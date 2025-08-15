@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sondage sur l'Eau Potable</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #0d6efd, #4ba3ff);
+      color: white;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .welcome-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    h1 {
+      font-weight: bold;
+    }
+    .btn-light {
+      font-weight: bold;
+    }
+    .btn-outline-light {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="welcome-card">
+    <i class="bi bi-droplet-half fs-1 mb-3"></i>
+    <h1>Sondage sur l'Eau Potable</h1>
+    <p class="lead mt-3">Bienvenue !  
+    Ce sondage vise à mieux comprendre l’accès et la qualité de l’eau potable dans votre région.</p>
+    <p>Vos réponses resteront strictement confidentielles et seront utilisées uniquement à des fins d'étude.</p>
+    
+    <div class="d-flex justify-content-center gap-3 mt-4">
+      <a href="index.html" class="btn btn-outline-light btn-lg">
+        <i class="bi bi-arrow-left-circle"></i> Retour
+      </a>
+      <a href="questionnaire.html" class="btn btn-light btn-lg">
+        Commencer le sondage <i class="bi bi-arrow-right-circle"></i>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
