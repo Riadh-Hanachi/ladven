@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LaDVEN — Laboratoire Eau & Environnement</title>
+  <meta name="description" content="LaDVEN : Recherche en dessalement, qualité de l'eau, microplastiques et plateformes de données environnementales." />
+
+  <!-- Favicons (optionnels) -->
+  <link rel="icon" href="assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+
+
+  
+  <!-- Premium Style -->
+  <style>
+   
+
+.text-dark-blue {
+  color: var(--bleu-profond);
+}
+
+.bg-dark-blue {
+  background-color: var(--bleu-profond);
+  color: var(--blanc-pur);
+}
+
+.btn-water {
+  background-color: var(--bleu-ocean);
+  color: var(--blanc-pur);
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.btn-water:hover {
+  background-color: var(--bleu-clair-eau);
+  color: var(--bleu-profond);
+}
+
+    :root {
+         --bleu-profond: #0d1b2a;
+  --bleu-ocean: #1b4965;
+  --bleu-clair-eau: #62b6cb;
+  --turquoise-doux: #bee9e8;
+  --blanc-pur: #ffffff;
+  --gris-perle: #f4f4f4;
+      --brand-1: #0ea5e9;   /* cyan */
+      --brand-2: #22d3ee;   /* aqua */
+      --brand-3: #14b8a6;   /* teal */
+      --ink-1: #0f172a;     /* slate-900 */
+      --ink-2: #334155;     /* slate-700 */
+      --ink-3: #64748b;     /* slate-500 */
+      --bg-1: #0b1220;      /* deep */
+      --bg-2: #0f172a;      /* panel */
+      --card: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.14);
+      --glow: 0 10px 30px rgba(34,211,238,.25);
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg-1:#f8fafc; --bg-2:#ffffff; --ink-1:#0f172a; --ink-2:#334155; --ink-3:#475569; --card:#ffffff; --border:#e2e8f0; }
+    }
+
+    html {scroll-behavior:smooth}
+    body {background: radial-gradient(1200px 600px at 20% -10%, rgba(34,211,238,.15), transparent 60%),
+                         radial-gradient(1000px 600px at 120% 10%, rgba(14,165,233,.18), transparent 60%),
+                         var(--bg-1); color: #e5e7eb; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;}
+
+    /* Header */
+    .navbar.ladven {backdrop-filter: saturate(140%) blur(8px); background: linear-gradient(180deg, #1977cc, #1977cc); border-bottom: 1px solid var(--border);}
+    .navbar-brand {font-family: Outfit, Inter, sans-serif; font-weight:800; letter-spacing:.4px;}
+    .brand-badge {display:inline-block; padding:.25rem .5rem; border-radius:999px; border:1px solid var(--border); font-size:.75rem; margin-left:.5rem; color:#a5f3fc;}
+    .nav-link {color:#cbd5e1!important; font-weight:500;}
+    .nav-link.active, .nav-link:hover {color:#fff!important}
+    .navbar-scrolled {box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2); background: #1977cc, 0.9 !important}
+
+    /* Hero */
+    .hero {
+      position: relative; overflow: hidden; padding: 8rem 0 6rem; background: linear-gradient(120deg, rgba(14,165,233,.18), rgba(20,184,166,.18) 55%, transparent 80%);
+    }
+    .hero::after {content:""; position:absolute; inset:-40%; background: radial-gradient(closest-side, rgba(34,211,238,.12), transparent 70%); filter: blur(60px); z-index:-1}
+    .badge-soft {border:1px solid var(--border); background:rgba(255,255,255,.05); color:#a5b4fc;}
+    .badge-soft2 {border:1px solid var(--border); color:#2c4964; font-size:.99rem; background:rgba(255,255,255,.05); color:#a5b4fc;}
+    .display-4 {font-family: Outfit, Inter, sans-serif; font-weight:800; letter-spacing:-.4px; color:#fff}
+    .lead {color:#2c4964}
+    .mb-0 {color:#2c4964}
+    .cta-gradient {background: linear-gradient(90deg, var(--brand-1), var(--brand-2)); border:none; box-shadow: var(--glow)}
+    .cta-gradient:hover {filter: brightness(1.07)}
+    .btn-ghost {border:2px solid var(--border); background:transparent; color:#3f4b5a}
+    .btn-ghost:hover {filter: brightness(1.07); color:#152d4d}
+
+    /* Section headers */
+    .section {padding: 5rem 0}
+    .section-title {margin-bottom:2rem}
+    .eyebrow {letter-spacing:.18em; text-transform:uppercase; font-weight:700; font-size:.8rem; color:#94a3b8}
+
+    /* Cards */
+    .glass-card {background: var(--card); border:1px solid var(--border); border-radius: 18px; padding: 1.25rem; transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;}
+    .glass-card:hover {transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,.25)}
+    .icon-pill {width:42px; height:42px; display:grid; place-items:center; border-radius:999px; background: radial-gradient(120% 120% at 30% 20%, rgba(14,165,233,.55), rgba(20,184,166,.4)); color:white}
+
+    /* Stats */
+    .stat {text-align:center}
+    .stat h3 {font-size:2.2rem; margin:0; color:#fff}
+    .stat p {color:#cbd5e1}
+
+    /* Services grid */
+    .service h5 {color:#fff}
+    .service p {color:#cbd5e1}
+
+    /* Partners carousel */
+    .partner-logo {filter: grayscale(100%) opacity(.75); transition: filter .3s ease}
+    .partner-logo:hover {filter: none}
+
+    /* Team */
+    .member {display:flex; gap:1rem; align-items:center}
+    .member img {width:78px; height:78px; object-fit:cover; border-radius:14px; border:1px solid var(--border)}
+    .member h6 {margin:0; color:#fff}
+    .member small {color:#a5b4fc}
+
+    /* Publications */
+    .pub-search {border:1px solid var(--border); background:rgba(255,255,255,.06); color:#e2e8f0}
+    .accordion-button {background: transparent; color:#e2e8f0; border:1px solid var(--border)}
+    .accordion-item {background: transparent; border:1px solid var(--border); border-radius:14px; overflow:hidden}
+
+    /* Gallery */
+    .gallery img {border-radius:14px; border:1px solid var(--border)}
+
+    /* Contact */
+    .form-control, .form-select {background:rgba(255,255,255,.06); border:1px solid var(--border); color:#e2e8f0}
+    .form-control:focus {box-shadow: var(--glow); border-color: var(--brand-2); background:rgba(255,255,255,.08)}
+    .is-invalid {border-color:#ef4444!important}
+    .invalid-feedback {color:#fca5a5}
+
+    /* Footer */
+    footer {background: linear-gradient(180deg, rgba(2,6,23,.6), rgba(2,6,23,.95)); border-top:1px solid var(--border)}
+    .footer-link {color:#cbd5e1; text-decoration:none}
+    .footer-link:hover {color:#fff}
+
+    /* Scroll to top */
+    #scrollTop {position:fixed; right:18px; bottom:18px; width:44px; height:44px; border-radius:999px; display:grid; place-items:center; background:linear-gradient(90deg, var(--brand-1), var(--brand-3)); color:#fff; border:none; box-shadow: var(--glow); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .25s ease;}
+    #scrollTop.show {opacity:1; pointer-events:auto}
+
+    /* Utilities */
+    .max-w-3xl {max-width: 60rem}
+    .blur-sep {height:1px; background:linear-gradient(90deg, transparent, var(--border), transparent); margin:2rem 0}
+    .text-gradient {background: linear-gradient(90deg, #fff, #a5f3fc); -webkit-background-clip:text; background-clip:text; color:transparent}
+    
+/* Pulsating Play Button
+------------------------------*/
+.pulsating-play-btn {
+  width: 94px;
+  height: 94px;
+  background: radial-gradient(var(--accent-color) 50%, color-mix(in srgb, var(--accent-color), transparent 75%) 52%);
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.pulsating-play-btn:before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  animation-delay: 0s;
+  animation: pulsate-play-btn 2s;
+  animation-direction: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps;
+  opacity: 1;
+  border-radius: 50%;
+  border: 5px solid color-mix(in srgb, var(--accent-color), transparent 30%);
+  top: -15%;
+  left: -15%;
+  background: rgba(198, 16, 0, 0);
+}
+
+.pulsating-play-btn:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-40%) translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #fff;
+  z-index: 100;
+  transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.pulsating-play-btn:hover:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-40%) translateY(-50%);
+  width: 0;
+  height: 0;
+  border: none;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #fff;
+  z-index: 200;
+  animation: none;
+  border-radius: 0;
+}
+
+.pulsating-play-btn:hover:after {
+  border-left: 15px solid var(--accent-color);
+  transform: scale(20);
+}
+
+@keyframes pulsate-play-btn {
+  0% {
+    transform: scale(0.6, 0.6);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <nav class="navbar navbar-expand-lg fixed-top ladven" id="siteNav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#hero">
+        <i class="bi bi-droplet-half me-2" style="font-size:1.2rem;color:var(--brand-2)"></i>
+        <span>LaDVEN</span>
+        <span class="brand-badge">Eau & Environnement</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#hero">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">Laboratoire</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Axes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#partners">Partenaires</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Équipe</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pubs">Publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Galerie</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="hero" class="hero">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7" data-aos="fade-up" data-aos-delay="50">
+          <span class="badge badge-soft2">Laboratoire Dessalement et Valorisation des Eaux Naturelles LaDVEN</span>
+          <h1 class="display-4 mt-3 mb-3">Des solutions innovantes pour une eau sûre et durable</h1>
+          <p class="lead max-w-3xl">Nous combinons chimie, science des matériaux, IA et ingénierie pour améliorer la qualité de l'eau, le dessalement et la surveillance des microplastiques.</p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="#services" class="btn btn-lg cta-gradient"><i class="bi bi-lightning-charge me-2"></i>Découvrir nos axes</a>
+            <a href="#contact" class="btn btn-lg btn-ghost"><i class="bi bi-envelope me-2"></i>Nous contacter</a>
+          </div>
+        </div>
+        <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="120">
+          <div class="glass-card p-0 overflow-hidden">
+            <img src="assets/img/affiche.jpg" class="w-100" alt="Water research" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-center mt-5 g-4">
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat glass-card">
+            <h3 class="purecounter" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1"></h3>
+            <p>Membres</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="50">
+          <div class="stat glass-card">
+            <h3 class="purecounter" data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1"></h3>
+            <p>Partenaires</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat glass-card">
+            <h3 class="purecounter" data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1"></h3>
+            <p>Projets en cours</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="150">
+          <div class="stat glass-card">
+            <h3 class="purecounter" data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1"></h3>
+            <p>Distinctions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container">
+
+        <div class="row gy-4 gx-5">
+
+          <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/img/about.png" class="img-fluid" alt="">
+            <a href="https://www.youtube.com/watch?v=F0BhwoF2feY&ab_channel=WaterExpoTunisia" class="glightbox pulsating-play-btn"></a>
+          </div>
+
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+            <h3>About Us</h3>
+          <p>
+          LaDVEN (Laboratory for the Development of Water and Environmental Nanotechnologies) is a multidisciplinary research lab focused on water treatment, desalination, and environmental monitoring. Our team brings together experts in chemistry, materials science, and data analysis to tackle challenges related to water quality and sustainability. We aim to develop innovative solutions for safer and more accessible drinking water.
+          </p>
+
+            <ul>
+              <li>
+                <i class="fa-solid fa-microscope"></i> Research & Innovation
+
+                <div>
+                 <h5>Multidisciplinary Research Approach</h5>
+            <p>
+            LaDVEN integrates chemistry, environmental science, and data technologies to develop sustainable solutions for water quality and desalination challenges.
+            </p>
+    </div>
+              </li>
+              <li>
+               <i class="fa-solid fa-droplet"></i>
+            <div>
+              <h5>Water Quality and Sustainability</h5>
+              <p>
+                We conduct advanced research on drinking water purification, focusing on innovative methods to ensure safety, sustainability, and accessibility for all communities.
+              </p>
+            </div>
+
+              </li>
+              <li>
+               <i class="fa-solid fa-flask-vial"></i>
+            <div>
+              <h5>Advanced Water Contaminant Analysis</h5>
+              <p>
+                Our lab uses state-of-the-art techniques to detect and analyze chemical and biological contaminants in drinking water, ensuring safe and reliable water resources.
+              </p>
+            </div>
+
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+  <!-- SERVICES / AXES -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-title text-center" data-aos="fade-up">
+        <span class="eyebrow">Axes de recherche</span>
+        <h2 class="h1 text-white mt-2">Ce que nous explorons</h2>
+        <p class="text-secondary">Des technologies de dessalement aux microplastiques, en passant par l'évaluation de la qualité et les plateformes de données.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="0">
+          <div class="glass-card service h-100">
+            <div class="d-flex align-items-center gap-3 mb-2"><div class="icon-pill"><i class="bi bi-droplet-half"></i></div><h5 class="mb-0">Dessalement</h5></div>
+            <p>Optimisation de procédés membranaires et solaires pour une production durable d'eau douce.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="50">
+          <div class="glass-card service h-100">
+            <div class="d-flex align-items-center gap-3 mb-2"><div class="icon-pill"><i class="bi bi-bezier"></i></div><h5 class="mb-0">Microplastiques</h5></div>
+            <p>Détection et analyse dans l'eau potable et les milieux naturels, impacts sanitaires et écologiques.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="glass-card service h-100">
+            <div class="d-flex align-items-center gap-3 mb-2"><div class="icon-pill"><i class="bi bi-activity"></i></div><h5 class="mb-0">Qualité de l'eau</h5></div>
+            <p>Suivi physico-chimique et biologique, méthodes analytiques avancées et gestion du risque.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="150">
+          <div class="glass-card service h-100">
+            <div class="d-flex align-items-center gap-3 mb-2"><div class="icon-pill"><i class="bi bi-diagram-3"></i></div><h5 class="mb-0">Chimie computationnelle</h5></div>
+            <p>Modélisation moléculaire pour le design de matériaux de purification.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="glass-card service h-100">
+            <div class="d-flex align-items-center gap-3 mb-2"><div class="icon-pill"><i class="bi bi-robot"></i></div><h5 class="mb-0">IA & Science des données</h5></div>
+            <p>Apprentissage automatique pour la prédiction des contaminations et l'optimisation des ressources.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="250">
+          <div class="glass-card service h-100">
+            <div class="d-flex align-items-center gap-3 mb-2"><div class="icon-pill"><i class="bi bi-database"></i></div><h5 class="mb-0">Plateformes de données</h5></div>
+            <p>Partage ouvert des jeux de données environnementaux pour la recherche collaborative.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners" class="section">
+    <div class="container">
+      <div class="section-title text-center" data-aos="fade-up">
+        <span class="eyebrow">Partenaires</span>
+        <h2 class="h1 text-white mt-2">Un réseau solide</h2>
+        <p class="text-secondary">Institutions nationales, universités et projets européens.</p>
+      </div>
+      <div class="swiper" data-aos="fade-up">
+        <div class="swiper-wrapper align-items-center">
+          <div class="swiper-slide text-center"><img class="partner-logo" src="assets/img/partners/instm-logo.jpg" alt="INSTM" height="56"/></div>
+          <div class="swiper-slide text-center"><img class="partner-logo" src="assets/img/partners/carthage-logo.jpg" alt="Université de Carthage" height="56"/></div>
+          <div class="swiper-slide text-center"><img class="partner-logo" src="assets/img/partners/sfax-logo.jpg" alt="Université de Sfax" height="56"/></div>
+          <div class="swiper-slide text-center"><img class="partner-logo" src="assets/img/partners/eu-logo.jpg" alt="EU Projects" height="56"/></div>
+          <div class="swiper-slide text-center"><img class="partner-logo" src="assets/img/partners/private-sector.jpg" alt="Private sector" height="56"/></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <span class="eyebrow">Équipe</span>
+        <h2 class="h1 text-white mt-2">Les personnes derrière LaDVEN</h2>
+      </div>
+
+      <div class="row g-3" data-aos="fade-up" data-aos-delay="60">
+        <!-- Repeat with your members -->
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card member">
+            <img src="assets/img/doctors/doctors-1.jpg" alt="Hamza El Fil" loading="lazy">
+            <div>
+              <h6>Pr. Hamza El Fil</h6>
+              <small>Responsable de groupe — LaDVEN</small>
+              <div class="mt-2 d-flex gap-2">
+                <a href="https://scholar.google.com/citations?user=civyd2QAAAAJ" target="_blank" class="footer-link"><i class="bi bi-mortarboard"></i></a>
+                <a href="https://www.researchgate.net/profile/Hamza-Elfil" target="_blank" class="footer-link"><i class="bi bi-journal-text"></i></a>
+                <a href="https://linkedin.com/in/hamza-elfil-%D8%AD%D9%85%D8%B2%D8%A9-%D8%A7%D9%84%D9%81%D9%8A%D9%84-306b1028" target="_blank" class="footer-link"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card member">
+            <img src="assets/img/doctors/doctors-1.jpg" alt="Houda Zendah" loading="lazy">
+            <div>
+              <h6>Houda Zendah</h6>
+              <small>Maître-assistante</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card member">
+            <img src="assets/img/doctors/doctors-1.jpg" alt="Emna Melliti" loading="lazy">
+            <div>
+              <h6>Emna Melliti</h6>
+              <small>Maître-assistante</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card member">
+            <img src="assets/img/doctors/doctors-1.jpg" alt="Nesrine Kamoun" loading="lazy">
+            <div>
+              <h6>Nesrine Kamoun</h6>
+              <small>Maître-assistante</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card member">
+            <img src="assets/img/doctors/doctors-1.jpg" alt="Nesrine Kalboussi" loading="lazy">
+            <div>
+              <h6>Nesrine Kalboussi</h6>
+              <small>Maître-assistante</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card member">
+            <img src="assets/img/doctors/doctors-1.jpg" alt="Kawther Ben Mabrouk" loading="lazy">
+            <div>
+              <h6>Kawther Ben Mabrouk</h6>
+              <small>Maître-assistante</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card member">
+            <img src="assets/img/doctors/doctors-1.jpg" alt="Aymen Bahrini" loading="lazy">
+            <div>
+              <h6>Aymen Bahrini</h6>
+              <small>Ingénieur de recherche</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card member">
+            <img src="assets/img/doctors/doctors-1.jpg" alt="Nouri Hmidi" loading="lazy">
+            <div>
+              <h6>Nouri Hmidi</h6>
+              <small>Ingénieur informatique</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card member">
+            <img src="assets/img/doctors/doctors-1.jpg" alt="Youssef Guesmi" loading="lazy">
+            <div>
+              <h6>Youssef Guesmi</h6>
+              <small>Postdoctorant</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card member">
+            <img src="assets/img/doctors/doctors-1.jpg" alt="Riadh Hanachi" loading="lazy">
+            <div>
+              <h6>Riadh Hanachi</h6>
+              <small>Postdoctorant</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="pubs" class="section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <span class="eyebrow">Publications</span>
+        <h2 class="h1 text-white mt-2">Derniers travaux</h2>
+      </div>
+      <div class="row g-3 align-items-center mb-3" data-aos="fade-up" data-aos-delay="60">
+        <div class="col-md-8">
+          <input id="pubSearch" class="form-control pub-search" type="search" placeholder="Rechercher par titre / auteur / année…" aria-label="Recherche publications">
+        </div>
+        <div class="col-md-4 text-md-end">
+          <button class="btn btn-sm btn-ghost" id="clearSearch"><i class="bi bi-x-circle me-1"></i>Effacer</button>
+        </div>
+      </div>
+
+      <div class="accordion" id="pubList" data-aos="fade-up" data-aos-delay="90">
+        <!-- Each item is filterable via data-attrs -->
+        <div class="accordion-item mb-2" data-attrs="2025 grine elfil dye wastewater tunisie">
+          <h2 class="accordion-header" id="p1h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p1" aria-expanded="false" aria-controls="p1">[2025] Cationic Dye Treatment Using Local Tunisian Iron Tailings…</button></h2>
+          <div id="p1" class="accordion-collapse collapse" aria-labelledby="p1h" data-bs-parent="#pubList"><div class="accordion-body">O. Grine, S. Andrejkovičová, K. Lazaar, R.C. Pullar, H. Elfil, F. Rocha, W. Hajjaji — <em>Chemistry Africa</em>.</div></div>
+        </div>
+        <div class="accordion-item mb-2" data-attrs="2025 kalboussi elfil halophytes brine desalination">
+          <h2 class="accordion-header" id="p2h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p2">[2025] Harnessing halophytes to mitigate the environmental impact of desalination brine</button></h2>
+          <div id="p2" class="accordion-collapse collapse" aria-labelledby="p2h" data-bs-parent="#pubList"><div class="accordion-body">N. Kalboussi, K.B. Hamed, H. Elfil — <em>Journal of Environmental Management</em>.</div></div>
+        </div>
+        <div class="accordion-item mb-2" data-attrs="2025 cherif elfil nitrogen removal mBBR sim">
+          <h2 class="accordion-header" id="p3h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p3">[2025] Modeling and simulation of nitrogen removal…</button></h2>
+          <div id="p3" class="accordion-collapse collapse" aria-labelledby="p3h" data-bs-parent="#pubList"><div class="accordion-body">H. Cherif, H. Risse, I. BenMansour, H. Shayeb, H. Elfil — <em>EMJEI</em>.</div></div>
+        </div>
+        <div class="accordion-item mb-2" data-attrs="2025 kamoun elfil sulfate nano-zirconia defluoridation">
+          <h2 class="accordion-header" id="p4h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p4">[2025] Influence of sulfate ions on adsorption properties of nano‑zirconia…</button></h2>
+          <div id="p4" class="accordion-collapse collapse" aria-labelledby="p4h" data-bs-parent="#pubList"><div class="accordion-body">N. Kamoun, S. Raissi, M.K. Younes, H. Elfil — <em>Reaction Kinetics, Mechanisms and Catalysis</em>.</div></div>
+        </div>
+        <div class="accordion-item mb-2" data-attrs="2024 kalboussi intercropping halophyte tomato field">
+          <h2 class="accordion-header" id="p5h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p5">[2024] Intercropping salt‑sensitive tomato with halophyte under field conditions…</button></h2>
+          <div id="p5" class="accordion-collapse collapse" aria-labelledby="p5h" data-bs-parent="#pubList"><div class="accordion-body">T. Slatni, A. Selmi, N. Kalboussi, et al. — <em>Environmental and Experimental Botany</em>.</div></div>
+        </div>
+        <div class="accordion-item mb-2" data-attrs="2024 arfa elfil hybrid electrochemical groundwater nitrate sulfate">
+          <h2 class="accordion-header" id="p6h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p6">[2024] Hybrid electrochemical process for simultaneous sulfate & nitrate removal…</button></h2>
+          <div id="p6" class="accordion-collapse collapse" aria-labelledby="p6h" data-bs-parent="#pubList"><div class="accordion-body">M.B. Arfa, A. Attour, A.V. Ursu, F. Audonnet, H. Elfil, C. Vial — <em>Journal of Water Process Engineering</em>.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <div class="section-title text-center" data-aos="fade-up">
+        <span class="eyebrow">Galerie</span>
+        <h2 class="h1 text-white mt-2">Sur le terrain & au laboratoire</h2>
+      </div>
+      <div class="row g-3 gallery" data-aos="fade-up" data-aos-delay="60">
+        <!-- Replace with your images -->
+        <div class="col-6 col-md-4 col-lg-3"><a href="assets/img/gallery/gallery-1.jpg" class="glightbox"><img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt="" loading="lazy"></a></div>
+        <div class="col-6 col-md-4 col-lg-3"><a href="assets/img/gallery/gallery-2.jpg" class="glightbox"><img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt="" loading="lazy"></a></div>
+        <div class="col-6 col-md-4 col-lg-3"><a href="assets/img/gallery/gallery-3.jpg" class="glightbox"><img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt="" loading="lazy"></a></div>
+        <div class="col-6 col-md-4 col-lg-3"><a href="assets/img/gallery/gallery-4.jpg" class="glightbox"><img src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt="" loading="lazy"></a></div>
+        <div class="col-6 col-md-4 col-lg-3"><a href="assets/img/gallery/gallery-5.jpg" class="glightbox"><img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt="" loading="lazy"></a></div>
+        <div class="col-6 col-md-4 col-lg-3"><a href="assets/img/gallery/gallery-6.jpg" class="glightbox"><img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt="" loading="lazy"></a></div>
+        <div class="col-6 col-md-4 col-lg-3"><a href="assets/img/gallery/gallery-7.jpg" class="glightbox"><img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt="" loading="lazy"></a></div>
+        <div class="col-6 col-md-4 col-lg-3"><a href="assets/img/gallery/gallery-8.jpg" class="glightbox"><img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt="" loading="lazy"></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <span class="eyebrow">Contact</span>
+        <h2 class="h1 text-white mt-2">Travaillons ensemble</h2>
+        <p class="text-secondary">Pour toute demande ou collaboration.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-5" data-aos="fade-right">
+          <div class="glass-card h-100">
+            <div class="d-flex align-items-start gap-3 mb-3"><i class="bi bi-geo-alt icon-pill"></i><div><h6>Adresse</h6><p class="mb-0">Route touristique de Soliman, BP 273, 8020 — Tunisie</p></div></div>
+            <div class="d-flex align-items-start gap-3 mb-3"><i class="bi bi-telephone icon-pill"></i><div><h6>Téléphone</h6><p class="mb-0">+216 71 000 000</p></div></div>
+            <div class="d-flex align-items-start gap-3"><i class="bi bi-envelope icon-pill"></i><div><h6>Email</h6><p class="mb-0">ladven@certe.com</p></div></div>
+          </div>
+        </div>
+        <div class="col-lg-7" data-aos="fade-left">
+          <div class="ratio ratio-16x9 glass-card overflow-hidden mb-3">
+            <iframe style="border:0; width: 100%; height: 100%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.53950450792!2d10.427528496245488!3d36.70960221270986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd4fcd0f43686b%3A0xa37993a874ac2e5b!2sWater%20Research%20and%20Technology%20Center%20(CERTE)!5e0!3m2!1sde!2stn!4v1753970183765!5m2!1sde!2stn" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <form id="contactForm" novalidate class="glass-card p-3">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Nom</label>
+                <input type="text" class="form-control" name="name" required>
+                <div class="invalid-feedback">Veuillez saisir votre nom.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" required>
+                <div class="invalid-feedback">Adresse email invalide.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Sujet</label>
+                <input type="text" class="form-control" name="subject" required>
+                <div class="invalid-feedback">Veuillez préciser le sujet.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" rows="5" name="message" required></textarea>
+                <div class="invalid-feedback">Votre message est vide.</div>
+              </div>
+              <div class="col-12 d-flex align-items-center gap-3">
+                <button class="btn cta-gradient" type="submit"><i class="bi bi-send me-2"></i>Envoyer</button>
+                <div id="formStatus" class="small"></div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h5 class="text-white">LaDVEN</h5>
+          <p class="text-secondary">Laboratoire de développement des nanotechnologies pour l'eau et l'environnement.</p>
+          <div class="d-flex gap-3 mt-3">
+            <a class="footer-link" href="#"><i class="bi bi-twitter-x"></i></a>
+            <a class="footer-link" href="#"><i class="bi bi-facebook"></i></a>
+            <a class="footer-link" href="#"><i class="bi bi-instagram"></i></a>
+            <a class="footer-link" href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 class="text-white">Liens</h6>
+          <ul class="list-unstyled">
+            <li><a class="footer-link" href="#about">À propos</a></li>
+            <li><a class="footer-link" href="#services">Axes</a></li>
+            <li><a class="footer-link" href="#partners">Partenaires</a></li>
+            <li><a class="footer-link" href="#pubs">Publications</a></li>
+            <li><a class="footer-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 class="text-white">Thèmes</h6>
+          <ul class="list-unstyled">
+            <li><a class="footer-link" href="#services">Dessalement</a></li>
+            <li><a class="footer-link" href="#services">Microplastiques</a></li>
+            <li><a class="footer-link" href="#services">Qualité de l'eau</a></li>
+            <li><a class="footer-link" href="#services">IA & Capteurs</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="text-white">Newsletter</h6>
+          <p class="text-secondary">Recevez nos actualités et opportunités (stages, thèses, colloques).</p>
+          <form class="d-flex gap-2" id="newsForm" novalidate>
+            <input type="email" class="form-control" placeholder="Votre email" required>
+            <button class="btn btn-ghost" type="submit">S'inscrire</button>
+          </form>
+          <small id="newsStatus" class="d-block mt-2 text-secondary"></small>
+        </div>
+      </div>
+      <div class="blur-sep"></div>
+      <div class="d-flex justify-content-between align-items-center">
+        <small class="text-secondary">© 2025 LaDVEN</small>
+        <small class="text-secondary">Design premium par votre équipe</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="scrollTop" aria-label="Revenir en haut"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- App JS -->
+  <script>
+    // Navbar scroll state
+    const nav = document.getElementById('siteNav');
+    const onScroll = () => {
+      if (window.scrollY > 10) nav.classList.add('navbar-scrolled');
+      else nav.classList.remove('navbar-scrolled');
+      document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
+    };
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+
+    // Smooth scroll & active links
+    document.querySelectorAll('a.nav-link[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id.length > 1) {
+          e.preventDefault();
+          document.querySelector(id)?.scrollIntoView({behavior:'smooth', block:'start'});
+          history.replaceState(null, '', id);
+        }
+      });
+    });
+
+    // Back to top
+    document.getElementById('scrollTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Vendors init
+    AOS.init({ once:true, duration:700, easing:'ease-out' });
+    GLightbox({ selector: '.glightbox' });
+    new PureCounter();
+    new Swiper('.swiper', { slidesPerView: 2, spaceBetween: 24, loop: true, autoplay: {delay: 2500}, breakpoints: { 576:{slidesPerView:3}, 768:{slidesPerView:4}, 992:{slidesPerView:5} } });
+
+    // Publications search filter
+    const pubSearch = document.getElementById('pubSearch');
+    const clearBtn = document.getElementById('clearSearch');
+    const items = Array.from(document.querySelectorAll('#pubList .accordion-item'));
+    function filterPubs(q) {
+      const query = q.trim().toLowerCase();
+      items.forEach(el => {
+        const attrs = el.getAttribute('data-attrs') || el.textContent;
+        el.style.display = attrs.toLowerCase().includes(query) ? '' : 'none';
+      });
+    }
+    pubSearch?.addEventListener('input', e => filterPubs(e.target.value));
+    clearBtn?.addEventListener('click', () => { pubSearch.value=''; filterPubs(''); pubSearch.focus(); });
+
+    // Contact form validation (frontend only demo)
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+      form.querySelectorAll('[required]').forEach(input => {
+        if (!input.value.trim() || (input.type==='email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value))) {
+          input.classList.add('is-invalid'); valid = false;
+        } else input.classList.remove('is-invalid');
+      });
+      if (!valid) { status.textContent = 'Veuillez corriger les champs en rouge.'; status.style.color = '#fca5a5'; return; }
+      status.textContent = 'Merci, votre message a été envoyé ✔'; status.style.color = '#86efac';
+      form.reset();
+    });
+
+    // Newsletter demo
+    const newsForm = document.getElementById('newsForm');
+    const newsStatus = document.getElementById('newsStatus');
+    newsForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = newsForm.querySelector('input[type="email"]');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) { input.classList.add('is-invalid'); newsStatus.textContent='Email invalide.'; return; }
+      input.classList.remove('is-invalid'); newsStatus.textContent='Inscription confirmée ✔';
+      input.value='';
+    });
+  </script>
+</body>
+</html>
